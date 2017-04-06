@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import client.Client;
+import javax.swing.JTextField;
 
 /**
  * The Class ClientUI.
@@ -54,13 +55,20 @@ public abstract class ClientUI extends JPanel implements ActionListener {
         add(scroll);
     }
 
+    public void add(JTextField[] a){
+        for (JTextField in : a){
+            in.addActionListener(this);
+            controls.add(in);
+        }
+    }
+    
     public void add(JButton[] a) {
         for (JButton in : a) {
             in.addActionListener(this);
             controls.add(in);
         }
     }
-
+   
     public void addChoices(Vector<String> a) {
         System.out.println("passed to add choices" + a);
         remove(services);

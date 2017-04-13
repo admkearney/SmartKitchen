@@ -18,6 +18,7 @@ public class ClientManager implements ServiceListener {
     private JmDNS jmdns;
     private final KettleClient client = new KettleClient();
     private final MicrowaveClient client2 = new MicrowaveClient();
+    private final StoveClient client3 = new StoveClient();
 
     public ClientManager() {
         try {
@@ -83,6 +84,23 @@ public class ClientManager implements ServiceListener {
             client2.disable();
             client2.initialized = false;
         }
+        
+        if (client3.getServiceType().equals(type) && client3.hasMultiple()) {
+            if (client3.isCurrent(name)) {
+                ServiceInfo[] a = jmdns.list(type);
+                for (ServiceInfo in : a) {
+                    if (!in.getName().equals(name)) {
+                        newService = in;
+                    }
+                }
+                client3.switchService(newService);
+            }
+            client3.remove(name);
+        } else if (client3.getServiceType().equals(type)) {
+            ui.removePanel(client3.returnUI());
+            client3.disable();
+            client3.initialized = false;
+        }
          
     }
 
@@ -111,6 +129,17 @@ public class ClientManager implements ServiceListener {
         } else if (client2.getServiceType().equals(type)
                 && client2.isInitialized()) {
             client2.addChoice(arg0.getInfo());
+
+        }
+         
+        if (client3.getServiceType().equals(type) && !client3.isInitialized()) {
+            client3.setUp(address, port);
+            ui.addPanel(client3.returnUI(), client3.getName());
+            client3.setCurrent(arg0.getInfo());
+            client3.addChoice(arg0.getInfo());
+        } else if (client3.getServiceType().equals(type)
+                && client3.isInitialized()) {
+            client3.addChoice(arg0.getInfo());
 
         }
     }

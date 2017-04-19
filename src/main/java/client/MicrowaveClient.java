@@ -6,6 +6,7 @@ import clientui.MicrowaveUI;
 public class MicrowaveClient extends Client {
     
     private final String COOK = "Cook";
+    private final String DONT = "Dont";
     private boolean isCooking = false;
 
     //constructor
@@ -26,9 +27,13 @@ public class MicrowaveClient extends Client {
                 isCooking = true;
                 ui.updateArea("Microwave is on");
             }
-        } else {
-            ui.updateArea("Microwave is already on");
-        }
+        } 
+    }
+    
+    public void dont(){
+      
+      ui.updateArea("No time");
+            
     }
 
     @Override

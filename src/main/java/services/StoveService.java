@@ -2,6 +2,7 @@ package services;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import com.google.gson.Gson;
 
 import serviceui.ServiceUI;
 
@@ -12,6 +13,7 @@ public class StoveService extends Service {
 
     private final Timer timer;
     private int percentHot;
+    Gson gson = new Gson();
 
     public StoveService(String name) {
         super(name, "_stove._udp.local.");
@@ -45,7 +47,7 @@ public class StoveService extends Service {
 
     @Override
     public String getStatus() {
-        return "Stove is " + percentHot + "% finished.";
+        return gson.toJson("Stove is " + percentHot + "% finished.");
     }
 
     public static void main(String[] args) {

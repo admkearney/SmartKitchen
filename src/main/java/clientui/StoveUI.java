@@ -23,9 +23,15 @@ public class StoveUI extends ClientUI {
         super.init();
         
         JTextField jt = new JTextField(6);
-        cook = new JButton("Hob 1");
+        cook = new JButton("Hob 1");  //HOB 1
         scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
         add(new JTextField[]{jt});
+        
+        
+
+        
+        
+        
         add(new JButton[]{cook});  
     }
 

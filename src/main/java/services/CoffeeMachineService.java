@@ -1,14 +1,60 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package services;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import com.google.gson.Gson;
+
+import serviceui.ServiceUI;
+
 /**
- *
- * @author User1
+ * 
  */
-public class CoffeeMachineService {
+public class CoffeeMachineService extends Service {
+
+    private final Timer timer;
+    private int percentHot;
+    Gson gson = new Gson(); 
     
+
+    public CoffeeMachineService(String name) {
+        super(name, "_coffeemachine._udp.local.");
+        timer = new Timer();
+        percentHot = 0;
+        ui = new ServiceUI(this, name);
+    }
+
+    @Override
+    public void performAction(String a) {
+        if (a.equals("get_status")) {
+            sendBack(getStatus());
+        } else if (a.equals("Boil")) {
+            timer.schedule(new RemindTask(), 0, 2000);
+            sendBack("OK");
+            ui.updateArea("Boiling kettle");
+        } else {
+            sendBack(BAD_COMMAND + " - " + a);
+        }
+    }
+
+    class RemindTask extends TimerTask {
+
+        @Override
+        public void run() {
+            if (percentHot < 100) {
+                percentHot += 10;
+            }
+        }
+    }
+
+    @Override
+    public String getStatus() {
+        return gson.toJson("Kettle is " + percentHot + "% boiled.");
+    }
+
+    public static void main(String[] args) {
+        new CoffeeMachineService("CoffeeMachine");
+    }
 }
+
+
+

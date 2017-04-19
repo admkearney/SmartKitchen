@@ -20,20 +20,15 @@ public class MicrowaveClient extends Client {
     /**
      * sends a message to start the microwave
      */
-    public void cook() {
+    public void cook(String time) {
         if (!isCooking) {
             String a = sendMessage(COOK);
             if (a.equals(OK)) {
                 isCooking = true;
                 ui.updateArea("Microwave is on");
+                ui.updateArea(time + "Seconds");
             }
         } 
-    }
-    
-    public void dont(){
-      
-      ui.updateArea("No time");
-            
     }
 
     @Override

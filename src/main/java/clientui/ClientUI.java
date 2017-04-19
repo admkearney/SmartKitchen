@@ -75,6 +75,12 @@ public abstract class ClientUI extends JPanel implements ActionListener {
             controls.add(in);
         }
     }
+     
+      public void add(JComboBox[] a) {
+        for (JComboBox in : a) {
+            controls.add(in);
+        }
+    }
    
     public void addChoices(Vector<String> a) {
         System.out.println("passed to add choices" + a);

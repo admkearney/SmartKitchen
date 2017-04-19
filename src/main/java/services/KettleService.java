@@ -2,6 +2,7 @@ package services;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import com.google.gson.Gson;
 
 import serviceui.ServiceUI;
 
@@ -12,6 +13,8 @@ public class KettleService extends Service {
 
     private final Timer timer;
     private int percentHot;
+        Gson gson = new Gson(); 
+    
 
     public KettleService(String name) {
         super(name, "_kettle._udp.local.");
@@ -45,7 +48,7 @@ public class KettleService extends Service {
 
     @Override
     public String getStatus() {
-        return "Kettle is " + percentHot + "% boiled.";
+        return gson.toJson("Kettle is " + percentHot + "% boiled.");
     }
 
     public static void main(String[] args) {

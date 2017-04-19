@@ -13,7 +13,7 @@ public class KettleService extends Service {
 
     private final Timer timer;
     private int percentHot;
-        Gson gson = new Gson(); 
+    Gson gson = new Gson(); 
     
 
     public KettleService(String name) {

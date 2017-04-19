@@ -2,6 +2,7 @@ package services;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import com.google.gson.Gson;
 
 import serviceui.ServiceUI;
 
@@ -12,6 +13,7 @@ public class MicrowaveService extends Service {
 
     private final Timer timer;
     private int percentHot;
+    Gson gson = new Gson(); 
 
     public MicrowaveService(String name) {
         super(name, "_microwave._udp.local.");
@@ -45,7 +47,7 @@ public class MicrowaveService extends Service {
 
     @Override
     public String getStatus() {
-        return "Microwave is " + percentHot + "% finished.";
+        return gson.toJson("Microwave is " + percentHot + "% finished.");
     }
 
     public static void main(String[] args) {

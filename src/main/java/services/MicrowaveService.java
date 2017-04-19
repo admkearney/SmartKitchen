@@ -29,7 +29,7 @@ public class MicrowaveService extends Service {
         } else if (a.equals("Cook")) {
             timer.schedule(new RemindTask(), 0, 2000);
             sendBack("OK");
-            ui.updateArea("Starting microwave");
+            ui.updateArea("Starting microwave..");
         } else {
             sendBack(BAD_COMMAND + " - " + a);
         }

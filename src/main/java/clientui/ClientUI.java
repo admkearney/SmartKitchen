@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import client.Client;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -65,6 +66,12 @@ public abstract class ClientUI extends JPanel implements ActionListener {
     public void add(JButton[] a) {
         for (JButton in : a) {
             in.addActionListener(this);
+            controls.add(in);
+        }
+    }
+    
+     public void add(JLabel[] a) {
+        for (JLabel in : a) {
             controls.add(in);
         }
     }

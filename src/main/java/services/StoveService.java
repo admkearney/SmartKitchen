@@ -49,7 +49,9 @@ public class StoveService extends Service {
     public String getStatus() {
         return gson.toJson("Stove is " + percentHot + "% finished.");
     }
-
+    
+    
+    
     public static void main(String[] args) {
         new StoveService("Stove");
     }

@@ -19,12 +19,15 @@ public class ClientManager implements ServiceListener {
     private final KettleClient client = new KettleClient();
     private final MicrowaveClient client2 = new MicrowaveClient();
     private final StoveClient client3 = new StoveClient();
+    private final CoffeeMachineClient client4 = new CoffeeMachineClient();
 
     public ClientManager() {
         try {
             jmdns = JmDNS.create(InetAddress.getLocalHost());
             jmdns.addServiceListener(client.getServiceType(), this);
             jmdns.addServiceListener(client2.getServiceType(), this);
+            jmdns.addServiceListener(client3.getServiceType(), this);
+            jmdns.addServiceListener(client4.getServiceType(), this);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -101,6 +104,23 @@ public class ClientManager implements ServiceListener {
             client3.disable();
             client3.initialized = false;
         }
+        
+        if (client4.getServiceType().equals(type) && client4.hasMultiple()) {
+            if (client4.isCurrent(name)) {
+                ServiceInfo[] a = jmdns.list(type);
+                for (ServiceInfo in : a) {
+                    if (!in.getName().equals(name)) {
+                        newService = in;
+                    }
+                }
+                client4.switchService(newService);
+            }
+            client4.remove(name);
+        } else if (client4.getServiceType().equals(type)) {
+            ui.removePanel(client4.returnUI());
+            client4.disable();
+            client4.initialized = false;
+        }
          
     }
 
@@ -140,6 +160,17 @@ public class ClientManager implements ServiceListener {
         } else if (client3.getServiceType().equals(type)
                 && client3.isInitialized()) {
             client3.addChoice(arg0.getInfo());
+
+        }
+        
+         if (client4.getServiceType().equals(type) && !client4.isInitialized()) {
+            client4.setUp(address, port);
+            ui.addPanel(client4.returnUI(), client4.getName());
+            client4.setCurrent(arg0.getInfo());
+            client4.addChoice(arg0.getInfo());
+        } else if (client4.getServiceType().equals(type)
+                && client4.isInitialized()) {
+            client4.addChoice(arg0.getInfo());
 
         }
     }

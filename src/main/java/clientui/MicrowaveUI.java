@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import client.MicrowaveClient;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MicrowaveUI extends ClientUI {
 
@@ -13,6 +15,7 @@ public class MicrowaveUI extends ClientUI {
     private JTextField time;
     private JLabel label;
     private final MicrowaveClient parent;
+    private String secs;
 
 
     public MicrowaveUI(MicrowaveClient microwaveClient) {
@@ -21,7 +24,7 @@ public class MicrowaveUI extends ClientUI {
         init();
     }
 
-    @Override
+    
     public void init() {
         super.init();
         
@@ -33,13 +36,18 @@ public class MicrowaveUI extends ClientUI {
         add(new JLabel[]{jl});
         add(new JButton[]{cook});  
         
-        String strseconds = jt.getText();
+        
+        
+        jt.addActionListener(this);
+        
+        secs = jt.getText();
     }
 
-    @Override
+   
+    
     public void actionPerformed(ActionEvent e) {
         
-        parent.cook();
+        parent.cook(secs);
 
     }
 }

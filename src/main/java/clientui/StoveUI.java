@@ -26,12 +26,10 @@ public class StoveUI extends ClientUI {
     public void init() {
         super.init();
         
-
         Hob1 = new JButton("Hob 1");
         Hob2 = new JButton("Hob 2");  
         Hob3 = new JButton("Hob 3");
         Hob4 = new JButton("Hob 4");
-        
         
         scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
         add(new JButton[]{Hob1});  
@@ -42,10 +40,31 @@ public class StoveUI extends ClientUI {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == Hob1) {
+        if (e.getSource() == Hob1)
+        {
             parent.Hob1();
         }
+        
+        else if (e.getSource() == Hob2)
+        {
+            parent.Hob2();
+        }
+        
+        else if (e.getSource() == Hob3)
+        {
+            parent.Hob3();
+        }
+        
+        else if (e.getSource() == Hob4)
+        {
+            parent.Hob4();
+        }
+                
+        
     }
+    
+    
+    
 }
 
 

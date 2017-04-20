@@ -8,6 +8,8 @@ public class KettleUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;
     private JButton boil;
+    private JButton power;
+            
     private final KettleClient parent;
 
     public KettleUI(KettleClient kettleClient) {
@@ -20,8 +22,10 @@ public class KettleUI extends ClientUI {
     public void init() {
         super.init();
         boil = new JButton("Boil");
+        power = new JButton("Power");
         scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
         add(new JButton[]{boil});
+        add(new JButton[]{power});
     }
 
     @Override
@@ -29,5 +33,9 @@ public class KettleUI extends ClientUI {
         if (e.getSource() == boil) {
             parent.boil();
         }
+        
+        else if (e.getSource() == power){
+            parent.power();
+        }            
     }
 }

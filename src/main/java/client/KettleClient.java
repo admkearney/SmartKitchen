@@ -7,6 +7,8 @@ public class KettleClient extends Client {
     
     private final String BOIL = "Boil";
     private boolean isBoiling = false;
+    private final String POWER = "power";
+    private boolean isOn = false;
 
     //constructor
     public KettleClient() {
@@ -16,10 +18,29 @@ public class KettleClient extends Client {
         name = "Kettle";
     }
 
+    
+    public void power(){
+        if(!isOn){
+            isOn = true;
+                ui.updateArea("Kettle has power.");
+                
+        }
+        
+        else {
+            
+            isOn = false;
+            ui.updateArea("Kettle does not have power.");
+            
+        }
+    }
+    
+    
+    
     /**
      * sends a message to warm the bed.
      */
     public void boil() {
+        if (isOn == true) {
         if (!isBoiling) {
             String a = sendMessage(BOIL);
             if (a.equals(OK)) {
@@ -29,7 +50,14 @@ public class KettleClient extends Client {
         } else {
             ui.updateArea("Kettle is already boiling");
         }
+        } 
+        else{
+            
+            ui.updateArea("Please turn the power on! ... Thick");
+        }
     }
+        
+        
 
     @Override
     public void updatePoll(String msg) {
@@ -44,5 +72,6 @@ public class KettleClient extends Client {
         super.disable();
         ui = new KettleUI(this);
         isBoiling = false;
+        isOn = false;
     }
 }

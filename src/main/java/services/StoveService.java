@@ -26,14 +26,41 @@ public class StoveService extends Service {
     public void performAction(String a) {
         if (a.equals("get_status")) {
             sendBack(getStatus());
-        } else if (a.equals("Ignite")) {
+             
+        } 
+        
+        else if (a.equals("Ignite1")) {
             timer.schedule(new RemindTask(), 0, 2000);
             sendBack("OK");
-            ui.updateArea("Starting Hob");
-        } else {
+            ui.updateArea("Starting Hob 1");
+        } 
+        
+        else if (a.equals("Ignite2")) {
+            timer.schedule(new RemindTask2(), 0, 2000);
+            sendBack("OK");
+            ui.updateArea("Starting Hob 2");
+        } 
+        
+        else if (a.equals("Ignite3")) {
+            timer.schedule(new RemindTask3(), 0, 2000);
+            sendBack("OK");
+            ui.updateArea("Starting Hob 3");
+        } 
+        
+        else if (a.equals("Ignite4")) {
+            timer.schedule(new RemindTask4(), 0, 2000);
+            sendBack("OK");
+            ui.updateArea("Starting Hob 4");
+        } 
+        
+        
+        else {
             sendBack(BAD_COMMAND + " - " + a);
         }
     }
+    
+
+
 
     class RemindTask extends TimerTask {
 
@@ -41,14 +68,88 @@ public class StoveService extends Service {
         public void run() {
             if (percentHot < 100) {
                 percentHot += 10;
+                    
             }
-        }
-    }
+        } 
+               
+        public String getStatus() 
 
-    @Override
-    public String getStatus() {
-        return gson.toJson("Hob is " + percentHot + "% finished.");
+        {
+            return gson.toJson("Hob 1 is " + percentHot + "% finished.");
+        }
+
     }
+    
+        class RemindTask2 extends TimerTask {
+
+        @Override
+        public void run() {
+            if (percentHot < 100) {
+                percentHot += 10;
+                    
+            }
+        } 
+               
+        public String getStatus() 
+
+        {
+            return gson.toJson("Hob 2 is " + percentHot + "% finished.");
+        }
+
+    }
+        
+        class RemindTask3 extends TimerTask {
+
+        @Override
+        public void run() {
+            if (percentHot < 100) {
+                percentHot += 10;
+                    
+            }
+        } 
+               
+        public String getStatus() 
+
+        {
+            return gson.toJson("Hob 3 is " + percentHot + "% finished.");
+        }
+
+    }
+        
+        class RemindTask4 extends TimerTask {
+
+        @Override
+        public void run() {
+            if (percentHot < 100) {
+                percentHot += 10;
+                    
+            }
+        } 
+               
+        public String getStatus() 
+
+        {
+            return gson.toJson("Hob 4 is " + percentHot + "% finished.");
+        }
+
+    }
+    
+      
+        public String getStatus() 
+
+        {
+            return gson.toJson("Hob 1 is " + percentHot + "% finished.");
+        }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

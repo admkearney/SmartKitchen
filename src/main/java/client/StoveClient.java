@@ -19,15 +19,51 @@ public class StoveClient extends Client {
     /**
      * sends a message to start the microwave
      */
-    public void cook() {
+    public void Hob1() {
         if (!isCooking) {
             String a = sendMessage(COOK);
             if (a.equals(OK)) {
                 isCooking = true;
-                ui.updateArea("Stove is on");
+                ui.updateArea("Hob 1 is on");
             }
         } else {
-            ui.updateArea("Stove is already on");
+            ui.updateArea("Hob 1 is already on");
+        }
+    }
+    
+        public void Hob2() {
+        if (!isCooking) {
+            String a = sendMessage(COOK);
+            if (a.equals(OK)) {
+                isCooking = true;
+                ui.updateArea("Hob 2 is on");
+            }
+        } else {
+            ui.updateArea("Hob 2 is already on");
+        }
+    }
+        
+            public void Hob3() {
+        if (!isCooking) {
+            String a = sendMessage(COOK);
+            if (a.equals(OK)) {
+                isCooking = true;
+                ui.updateArea("Hob 3 is on");
+            }
+        } else {
+            ui.updateArea("Hob 3 is already on");
+        }
+    }
+            
+                public void Hob4() {
+        if (!isCooking) {
+            String a = sendMessage(COOK);
+            if (a.equals(OK)) {
+                isCooking = true;
+                ui.updateArea("Hob 4 is on");
+            }
+        } else {
+            ui.updateArea("Hob 4 already on");
         }
     }
 

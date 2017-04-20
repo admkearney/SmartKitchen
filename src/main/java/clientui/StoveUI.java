@@ -8,7 +8,11 @@ import javax.swing.JTextField;
 public class StoveUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;
-    private JButton cook;
+    private JButton Hob1;
+    private JButton Hob2;
+    private JButton Hob3;
+    private JButton Hob4;
+    
     private JTextField time;
     private final StoveClient parent;
 
@@ -22,23 +26,17 @@ public class StoveUI extends ClientUI {
     public void init() {
         super.init();
         
-        JTextField jt = new JTextField(6);
-        cook = new JButton("Hob 1");  //HOB 1
-        scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
-        add(new JTextField[]{jt});
-        
-        
 
-        
-        
-        
-        add(new JButton[]{cook});  
+        Hob1 = new JButton("Hob 1");  //HOB 1
+        scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
+
+        add(new JButton[]{Hob1});  
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == cook) {
-            parent.cook();
+        if (e.getSource() == Hob1) {
+            parent.Hob1();
         }
     }
 }

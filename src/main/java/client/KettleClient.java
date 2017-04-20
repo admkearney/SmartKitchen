@@ -3,12 +3,17 @@ package client;
 import clientui.KettleUI;
 
 
+
+/*
+*  This Was Adapted from the project sample on moodle 
+*/
+
 public class KettleClient extends Client {
     
     private final String BOIL = "Boil";
     private boolean isBoiling = false;
-    private final String POWER = "power";
-    private boolean isOn = false;
+    private final String POWER = "power"; // For determining if the kettle has power
+    private boolean isOn = false; // 
 
     //constructor
     public KettleClient() {
@@ -18,6 +23,7 @@ public class KettleClient extends Client {
         name = "Kettle";
     }
 
+       // Determing if the kettle has power or not. 
     
     public void power(){
         if(!isOn){
@@ -37,7 +43,7 @@ public class KettleClient extends Client {
     
     
     /**
-     * sends a message to warm the bed.
+     * This 
      */
     public void boil() {
         if (isOn == true) {
@@ -53,12 +59,11 @@ public class KettleClient extends Client {
         } 
         else{
             
-            ui.updateArea("Please turn the power on! ... Thick");
+            ui.updateArea("Please turn the power on."); // User is told to turn on the power before the kettle boils
         }
     }
+      // When the boiling process stops a message is displayed 
         
-        
-
     @Override
     public void updatePoll(String msg) {
         if (msg.equals("Kettle is 100% boiled.")) {
@@ -66,7 +71,9 @@ public class KettleClient extends Client {
             ui.updateArea("Kettle is finished boiling");
         }
     }
-
+      
+    
+    // Disables the UI When you exit out
     @Override
     public void disable() {
         super.disable();

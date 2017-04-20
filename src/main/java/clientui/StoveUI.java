@@ -4,10 +4,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import client.StoveClient;
 
+/*
+*  This Was Adapted from the project sample on moodle 
+*/
 
 public class StoveUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;
+    
+    // Creates Variables for the Buttons Used
+    
     private JButton Hob1;
     private JButton Hob2;
     private JButton Hob3;
@@ -25,6 +31,8 @@ public class StoveUI extends ClientUI {
     @Override
     public void init() {
         super.init();
+        
+        // Declares buttons and adds them in
         
         Hob1 = new JButton("Hob 1");
         Hob2 = new JButton("Hob 2");  

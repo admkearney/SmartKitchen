@@ -5,8 +5,11 @@ import javax.swing.JButton;
 import client.KettleClient;
 
 public class KettleUI extends ClientUI {
+    
 
     private static final long serialVersionUID = 1L;
+    
+    // Two Buttons Used. 
     private JButton boil;
     private JButton power;
             

@@ -6,9 +6,10 @@ import com.google.gson.Gson;
 
 import serviceui.ServiceUI;
 
-/**
- * The Class StoveService.
- */
+/*
+*  This Was Adapted from the project sample on moodle 
+*/
+
 public class StoveService extends Service {
 
     private final Timer timer;
@@ -142,17 +143,7 @@ public class StoveService extends Service {
         }
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     public static void main(String[] args) {
         new StoveService("Stove");
     }

@@ -2,8 +2,13 @@ package client;
 
 import clientui.StoveUI;
 
+/*
+*  This Was Adapted from the project sample on moodle 
+*/
 
 public class StoveClient extends Client {
+    
+    // Controls Each of the Ignitions for every hob.
     
     private final String IGNITE1 = "Ignite1";
     private final String IGNITE2 = "Ignite2";
@@ -22,17 +27,17 @@ public class StoveClient extends Client {
     }
 
     /**
-     * sends a message to start the the hob
+     * // Uses the buttons to send a message "ignite" to the system to start hob 
      */
     public void Hob1() {
         if (!isOn) {
             String a = sendMessage(IGNITE1);
             if (a.equals(OK)) {
                 isOn = true;
-                ui.updateArea("Hob 1 is on");
+                ui.updateArea("Hob 1 is on"); // Hob is on
             }
         } else {
-            ui.updateArea("Hob 1 is already on");
+            ui.updateArea("Hob 1 is already on"); // Displays this message if the hob is already on
         }
     }
     
@@ -41,10 +46,10 @@ public class StoveClient extends Client {
             String b = sendMessage(IGNITE2);
             if (b.equals(OK)) {
                 isOn = true;
-                ui.updateArea("Hob 2 is on");
+                ui.updateArea("Hob 2 is on"); // Hob is on
             }
         } else {
-            ui.updateArea("Hob 2 is already on");
+            ui.updateArea("Hob 2 is already on"); // Displays this message if the hob is already on
         }
     }
         
@@ -53,10 +58,10 @@ public class StoveClient extends Client {
             String c = sendMessage(IGNITE3);
             if (c.equals(OK)) {
                 isOn = true;
-                ui.updateArea("Hob 3 is on");
+                ui.updateArea("Hob 3 is on"); // Hob is on
             }
         } else {
-            ui.updateArea("Hob 3 is already on");
+            ui.updateArea("Hob 3 is already on"); // Displays this message if the hob is already on
         }
     }
             
@@ -65,13 +70,16 @@ public class StoveClient extends Client {
             String d = sendMessage(IGNITE4);
             if (d.equals(OK)) {
                 isOn = true;
-                ui.updateArea("Hob 4 is on");
+                ui.updateArea("Hob 4 is on"); // Hob is on
             }
         } else {
-            ui.updateArea("Hob 4 is already on");
+            ui.updateArea("Hob 4 is already on"); // Displays this message if the hob is already on
         }
     }
     
+    
+    
+    // Ends Process
 
     @Override
     public void updatePoll(String msg) {

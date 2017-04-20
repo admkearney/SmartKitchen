@@ -56,7 +56,7 @@ public abstract class Client {
         }
         Vector<String> d = new Vector<String>();
         d.addAll(services.keySet());
-        ui.addChoices(d);
+        //ui.addChoices(d);
     }
 
     public boolean isCurrent(String name) {
@@ -87,7 +87,7 @@ public abstract class Client {
         System.out.println("current " + current.getName());
         d.addAll(as.keySet());
         System.out.println("called add choices from addchoice");
-        ui.addChoices(d);
+       // ui.addChoices(d);
     }
 
     /**

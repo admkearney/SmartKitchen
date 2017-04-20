@@ -2,7 +2,9 @@ package client;
 
 import clientui.MicrowaveUI;
 
-
+/**
+ * Adapted from the Project Sample on Moodle
+ */
 public class MicrowaveClient extends Client {
     
     private final String COOK = "Cook";

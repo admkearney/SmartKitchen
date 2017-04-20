@@ -42,7 +42,7 @@ public abstract class ClientUI extends JPanel implements ActionListener {
         setLayout(null);
         services = new JComboBox();
         services.addActionListener(actionListener);
-        add(services);
+        //add(services);
         services.setBounds(170, 5, 200, 30);
         controls = new JPanel();
         controls.setBounds(5, UIConstants.CONTROLY, UIConstants.COMPONENTWIDTH,
@@ -82,7 +82,7 @@ public abstract class ClientUI extends JPanel implements ActionListener {
         }
     }
    
-    public void addChoices(Vector<String> a) {
+   /* public void addChoices(Vector<String> a) {
         System.out.println("passed to add choices" + a);
         remove(services);
         services = new JComboBox(a);
@@ -91,20 +91,20 @@ public abstract class ClientUI extends JPanel implements ActionListener {
         add(services);
         updateUI();
     }
-
+ */
     ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            JComboBox cb = (JComboBox) actionEvent.getSource();
-            String serviceName = (String) cb.getSelectedItem();
-            p.switchService(serviceName);
+            //JComboBox cb = (JComboBox) actionEvent.getSource();
+            //String serviceName = (String) cb.getSelectedItem();
+            //p.switchService(serviceName);
         }
     };
 
     public void refresh(Vector<String> a) {
         this.removeAll();
         init();
-        addChoices(a);
+        //addChoices(a);
     }
 
     public void clearArea() {

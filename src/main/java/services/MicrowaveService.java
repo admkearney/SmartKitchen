@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import serviceui.ServiceUI;
 
 /**
- * The Class MicrowaveService.
+ * Adapted from the Project Sample on Moodle
  */
 public class MicrowaveService extends Service {
 

@@ -8,6 +8,10 @@ import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+/**
+ * Adapted from the Project Sample on Moodle
+ */
 public class MicrowaveUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;

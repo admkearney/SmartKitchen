@@ -5,6 +5,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import client.CoffeeMachineClient;
 
+/**
+ * Adapted from the Project Sample on Moodle
+ */
 public class CoffeeMachineUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;

@@ -2,7 +2,9 @@ package client;
 
 import clientui.CoffeeMachineUI;
 
-
+/**
+ * Adapted from the Project Sample on Moodle
+ */
 public class CoffeeMachineClient extends Client {
     
     private final String LATTE = "Latte";

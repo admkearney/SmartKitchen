@@ -3,13 +3,17 @@ package clientui;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import client.StoveClient;
-import javax.swing.JTextField;
+
 
 public class StoveUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;
-    private JButton cook;
-    private JTextField time;
+    private JButton Hob1;
+    private JButton Hob2;
+    private JButton Hob3;
+    private JButton Hob4;
+
+
     private final StoveClient parent;
 
     public StoveUI(StoveClient stoveClient) {
@@ -22,25 +26,28 @@ public class StoveUI extends ClientUI {
     public void init() {
         super.init();
         
-        JTextField jt = new JTextField(6);
-        cook = new JButton("Hob 1");  //HOB 1
-        scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
-        add(new JTextField[]{jt});
-        
-        
 
+        Hob1 = new JButton("Hob 1");
+        Hob2 = new JButton("Hob 2");  
+        Hob3 = new JButton("Hob 3");
+        Hob4 = new JButton("Hob 4");
         
         
-        
-        add(new JButton[]{cook});  
+        scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
+        add(new JButton[]{Hob1});  
+        add(new JButton[]{Hob2});
+        add(new JButton[]{Hob3});  
+        add(new JButton[]{Hob4});
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == cook) {
-            parent.cook();
+        if (e.getSource() == Hob1) {
+            parent.Hob1();
         }
     }
 }
+
+
 
 

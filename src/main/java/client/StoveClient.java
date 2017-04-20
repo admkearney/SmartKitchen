@@ -5,8 +5,8 @@ import clientui.StoveUI;
 
 public class StoveClient extends Client {
     
-    private final String COOK = "Cook";
-    private boolean isCooking = false;
+    private final String IGNITE = "Ignite";
+    private boolean isOn = false;
 
     //constructor
     public StoveClient() {
@@ -19,22 +19,23 @@ public class StoveClient extends Client {
     /**
      * sends a message to start the microwave
      */
-    public void cook() {
-        if (!isCooking) {
-            String a = sendMessage(COOK);
+    public void Hob1() {
+        if (!isOn) {
+            String a = sendMessage(IGNITE);
             if (a.equals(OK)) {
-                isCooking = true;
-                ui.updateArea("Stove is on");
+                isOn = true;
+                ui.updateArea("Hob 1 is on");
             }
         } else {
-            ui.updateArea("Stove is already on");
+            ui.updateArea("Hob 1 is already on");
         }
     }
+    
 
     @Override
     public void updatePoll(String msg) {
         if (msg.equals("Stove is finished")) {
-            isCooking = false;
+            isOn = false;
             ui.updateArea("Stove done");
         }
     }
@@ -43,7 +44,7 @@ public class StoveClient extends Client {
     public void disable() {
         super.disable();
         ui = new StoveUI(this);
-        isCooking = false;
+        isOn = false;
     }
 }
 

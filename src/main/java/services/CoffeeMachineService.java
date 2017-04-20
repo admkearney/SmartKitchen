@@ -49,6 +49,7 @@ public class CoffeeMachineService extends Service {
 
         @Override
         public void run() {
+            //change the task as the progress continues 
             if (progress < 20){
                 task = "Grinding Coffee Beans";
                 ui.updateArea("Added Task:" + task);

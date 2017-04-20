@@ -30,7 +30,9 @@ public class CoffeeMachineClient extends Client {
                 ui.updateArea("Coffee Machine ready to make Latte");
                
             }
-        } 
+        } else{
+            ui.updateArea("Coffee Machine is already brewing");
+        }
     }
     
     public void americano() {
@@ -41,7 +43,9 @@ public class CoffeeMachineClient extends Client {
                 ui.updateArea("Coffee Machine ready to make Americano");
                
             }
-        } 
+        } else{
+            ui.updateArea("Coffee Machine is already brewing");
+        }
     }
     
     public void cappuccino() {
@@ -52,12 +56,15 @@ public class CoffeeMachineClient extends Client {
                 ui.updateArea("Coffee Machine ready to make Cappuccino");
                
             }
-        } 
+        } else{
+            ui.updateArea("Coffee Machine is already brewing");
+        }
     }
 
     @Override
     public void updatePoll(String msg) {
-        if (msg.equals("Coffee Machine is finished")) {
+        //stop the machine once the final task of each of the methods is printed
+        if (msg.equals("\"Current Task: Pouring Americano\"")||(msg.equals("\"Current Task: Pouring Latte\""))||(msg.equals("\"Current Task: Pouring Cappuccino\"")) ){
             isBrewing = false;
             ui.updateArea("Coffee Machine done");
         }

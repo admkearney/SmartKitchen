@@ -24,6 +24,7 @@ public class CoffeeMachineUI extends ClientUI {
     @Override
     public void init() {
         super.init();
+        //list of coffees
         String[] coffee = {"Americano", "Latte", "Cappuccino"};   
         box = new JComboBox(coffee);
         brew = new JButton("Brew");
@@ -39,6 +40,7 @@ public class CoffeeMachineUI extends ClientUI {
         //get the option from the combobox
         String type = box.getSelectedItem().toString();
         
+        //run the function for the corresponding coffee type
         if (type.equals("Americano")) {
             parent.americano();
         }

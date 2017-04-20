@@ -44,6 +44,7 @@ public class MicrowaveUI extends ClientUI {
         
         jt.addActionListener(this);
         
+        //set secs to text in text field
         secs = jt.getText();
     }
 
@@ -51,6 +52,7 @@ public class MicrowaveUI extends ClientUI {
     
     public void actionPerformed(ActionEvent e) {
         
+       //send secs to the cook function
         parent.cook(secs);
 
     }

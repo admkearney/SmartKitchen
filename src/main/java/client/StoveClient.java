@@ -5,8 +5,8 @@ import clientui.StoveUI;
 
 public class StoveClient extends Client {
     
-    private final String COOK = "Cook";
-    private boolean isCooking = false;
+    private final String IGNITE = "Ignite";
+    private boolean isOn = false;
 
     //constructor
     public StoveClient() {
@@ -20,10 +20,10 @@ public class StoveClient extends Client {
      * sends a message to start the microwave
      */
     public void Hob1() {
-        if (!isCooking) {
-            String a = sendMessage(COOK);
+        if (!isOn) {
+            String a = sendMessage(IGNITE);
             if (a.equals(OK)) {
-                isCooking = true;
+                isOn = true;
                 ui.updateArea("Hob 1 is on");
             }
         } else {
@@ -31,46 +31,11 @@ public class StoveClient extends Client {
         }
     }
     
-        public void Hob2() {
-        if (!isCooking) {
-            String a = sendMessage(COOK);
-            if (a.equals(OK)) {
-                isCooking = true;
-                ui.updateArea("Hob 2 is on");
-            }
-        } else {
-            ui.updateArea("Hob 2 is already on");
-        }
-    }
-        
-            public void Hob3() {
-        if (!isCooking) {
-            String a = sendMessage(COOK);
-            if (a.equals(OK)) {
-                isCooking = true;
-                ui.updateArea("Hob 3 is on");
-            }
-        } else {
-            ui.updateArea("Hob 3 is already on");
-        }
-    }
-            
-                public void Hob4() {
-        if (!isCooking) {
-            String a = sendMessage(COOK);
-            if (a.equals(OK)) {
-                isCooking = true;
-                ui.updateArea("Hob 4 is on");
-            }
-        } else {
-            ui.updateArea("Hob 4 already on");
-        }
-    }
 
     @Override
     public void updatePoll(String msg) {
         if (msg.equals("Stove is finished")) {
-            isCooking = false;
+            isOn = false;
             ui.updateArea("Stove done");
         }
     }
@@ -79,7 +44,7 @@ public class StoveClient extends Client {
     public void disable() {
         super.disable();
         ui = new StoveUI(this);
-        isCooking = false;
+        isOn = false;
     }
 }
 

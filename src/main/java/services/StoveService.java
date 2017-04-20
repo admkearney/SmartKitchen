@@ -26,10 +26,10 @@ public class StoveService extends Service {
     public void performAction(String a) {
         if (a.equals("get_status")) {
             sendBack(getStatus());
-        } else if (a.equals("Cook")) {
+        } else if (a.equals("Ignite")) {
             timer.schedule(new RemindTask(), 0, 2000);
             sendBack("OK");
-            ui.updateArea("Starting stove");
+            ui.updateArea("Starting Hob");
         } else {
             sendBack(BAD_COMMAND + " - " + a);
         }
@@ -47,7 +47,7 @@ public class StoveService extends Service {
 
     @Override
     public String getStatus() {
-        return gson.toJson("Stove is " + percentHot + "% finished.");
+        return gson.toJson("Hob is " + percentHot + "% finished.");
     }
     
     

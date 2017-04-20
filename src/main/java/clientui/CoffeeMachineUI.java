@@ -8,7 +8,7 @@ import client.CoffeeMachineClient;
 public class CoffeeMachineUI extends ClientUI {
 
     private static final long serialVersionUID = 1L;
-    private JButton boil;
+    private JButton brew;
     private JComboBox box;
     private final CoffeeMachineClient parent;
 
@@ -21,21 +21,33 @@ public class CoffeeMachineUI extends ClientUI {
     @Override
     public void init() {
         super.init();
-        String[] coffee = {"Americano", "Latte"};
+        String[] coffee = {"Americano", "Latte", "Cappuccino"};   
         box = new JComboBox(coffee);
-        boil = new JButton("Boil");
+        brew = new JButton("Brew");
         scroll.setBounds(5, 40, UIConstants.COMPONENTWIDTH, 300);
         add(new JComboBox[]{box});
-        add(new JButton[]{boil});
+        add(new JButton[]{brew});
         
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        //get the option from the combobox
         String type = box.getSelectedItem().toString();
-        if (type.equals("Latte")) {
-            parent.cook();
+        
+        if (type.equals("Americano")) {
+            parent.americano();
         }
+            
+        if (type.equals("Latte")) {
+            parent.latte();
+        }
+        
+        if (type.equals("Cappuccino")) {
+            parent.cappuccino();
+        }
+        
     }
 }
 
